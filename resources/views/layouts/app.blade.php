@@ -12,10 +12,10 @@
   		
 	  		<ul class="flex items-center">
 	  			<li class="mx-4">
-	  				<a href="" class="text-xl hover:text-cyan-400 duration-500">Home</a>
+	  				<a href="/" class="text-xl hover:text-cyan-400 duration-500">Home</a>
 	  			</li>
 	  			<li class="mx-4">
-	  				<a href="" class="text-xl hover:text-cyan-400 duration-500">Dashboard</a>
+	  				<a href="{{ route('dashboard') }}" class="text-xl hover:text-cyan-400 duration-500">Dashboard</a>
 	  			</li>
 	  			<li class="mx-4">
 	  				<a href="" class="text-xl hover:text-cyan-400 duration-500">Publicaciones</a>
@@ -23,18 +23,27 @@
 	  		</ul>
 
 	  		<ul class="flex items-center">
-	  			<li class="mx-3">
-	  				<a href="" class="text-xl hover:text-orange-400 duration-500">Silverio del Rosario</a>
-	  			</li>
-	  			<li class="mx-3">
-	  				<a href="" class="text-xl hover:text-orange-400 duration-500">Login</a>
-	  			</li>
-	  			<li class="mx-3">
-	  				<a href="{{ route('register') }}" class="text-xl hover:text-orange-400 duration-500">Registro</a>
-	  			</li>
-	  			<li class="mx-3">
-	  				<a href="" class="text-xl hover:text-orange-400 duration-500">Logout</a>
-	  			</li>
+	  			@auth
+	  				<li class="mx-3">
+	  					<a href="" class="text-xl hover:text-orange-400 duration-500">Silverio del Rosario</a>
+	  				</li>
+	  				<li class="mx-3">
+	  					<form action="{{ route('logout') }}" method="post" class="p-3 inline">
+	  						@csrf
+	  						<button type="submit">Salir</button>
+
+	  					</form>
+	  				</li>
+	  			@endauth
+	  			@guest
+	  				<li class="mx-3">
+	  					<a href="{{ route('login') }}" class="text-xl hover:text-orange-400 duration-500">Ingresar</a>
+	  				</li>
+	  				<li class="mx-3">
+	  					<a href="{{ route('register') }}" class="text-xl hover:text-orange-400 duration-500">Registro</a>
+	  				</li>
+	  			@endguest
+
 	  		</ul>
   		
   	</nav>
