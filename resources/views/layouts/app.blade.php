@@ -7,30 +7,30 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   </head>
-  <body class="bg-cyan-200">
+  <body class="bg-gray-300">
   	<nav class="p-5 bg-white shadow md:flex md:justify-between mb-6">
   		
 	  		<ul class="flex items-center">
 	  			<li class="mx-4">
-	  				<a href="/" class="text-xl hover:text-cyan-400 duration-500">Home</a>
+	  				<a href="/" class="text-xl hover:text-green-400 duration-500">Home</a>
 	  			</li>
 	  			<li class="mx-4">
-	  				<a href="{{ route('dashboard') }}" class="text-xl hover:text-cyan-400 duration-500">Dashboard</a>
+	  				<a href="{{ route('dashboard') }}" class="text-xl hover:text-green-400 duration-500">Dashboard</a>
 	  			</li>
 	  			<li class="mx-4">
-	  				<a href="" class="text-xl hover:text-cyan-400 duration-500">Publicaciones</a>
+	  				<a href="{{ route('posts') }}" class="text-xl hover:text-green-400 duration-500">Publicaciones</a>
 	  			</li>
 	  		</ul>
 
 	  		<ul class="flex items-center">
 	  			@auth
 	  				<li class="mx-3">
-	  					<a href="" class="text-xl hover:text-orange-400 duration-500">Silverio del Rosario</a>
+	  					<a href="" class="text-xl hover:text-orange-400 duration-500">{{ auth()->user()->name }}</a>
 	  				</li>
 	  				<li class="mx-3">
 	  					<form action="{{ route('logout') }}" method="post" class="p-3 inline">
 	  						@csrf
-	  						<button type="submit">Salir</button>
+	  						<button type="submit" class="text-xl hover:text-blue-600 duration-500 bg-orange-400 hover:bg-orange-600 rounded">Salir</button>
 
 	  					</form>
 	  				</li>
