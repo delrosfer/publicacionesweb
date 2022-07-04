@@ -7,8 +7,8 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   </head>
-  <body class="bg-gray-300">
-  	<nav class="p-5 bg-white shadow md:flex md:justify-between mb-6">
+  <body class="bg-gradient-to-r from-cyan-500 to-blue-500">
+  	<nav class="p-5 bg-gradient-to-r from-amber-500 to-lime-500 shadow md:flex md:justify-between mb-6">
   		
 	  		<ul class="flex items-center">
 	  			<li class="mx-4">
@@ -22,7 +22,7 @@
 	  			</li>
 	  		</ul>
 
-	  		<ul class="flex items-center">
+	  		<ul class="flex items-center z-[-1] md:z-auto md:static absolute bg-orange-200 w-full left-0 md:w-auto">
 	  			@auth
 	  				<li class="mx-3">
 	  					<a href="" class="text-xl hover:text-orange-400 duration-500">{{ auth()->user()->name }}</a>
@@ -43,9 +43,7 @@
 	  					<a href="{{ route('register') }}" class="text-xl hover:text-orange-400 duration-500">Registro</a>
 	  				</li>
 	  			@endguest
-
-	  		</ul>
-  		
+	  		</ul>  		
   	</nav>
     @yield('content')
   </body>

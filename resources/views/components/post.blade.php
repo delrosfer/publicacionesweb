@@ -1,6 +1,6 @@
 @props(['post' => $post])
 
-<div class="mb-4">
+<div class="mb-4 rounded-lg bg-gradient-to-r from-emerald-200 to-emerald-400">
     <a href="{{ route('users.posts', $post->user) }}" class="font-bold">{{ $post->user->name }}</a> <span class="text-gray-600 text-sm">{{ $post->created_at->diffForHumans() }}</span>
     <p class="mb-2">{{ $post->body }}</p>
 
@@ -8,7 +8,7 @@
         <form action="{{ route('posts.destroy', $post) }}" method="post">
             @csrf
             @method('DELETE')
-            <button type="submit" class="text-blue-500">Eliminar</button>
+            <button type="submit" class="text-red-600 text-bold">Eliminar</button>
         </form>
     @endcan
 
@@ -17,13 +17,13 @@
             @if(!$post->likedBy(auth()->user()))
                 <form action="{{ route('posts.likes', $post) }}" method="post" class="mr-1">
                     @csrf
-                    <button type="submit" class="text-blue-500">Me gusta</button>
+                    <button type="submit" class="text-blue-600 text-bold">Me gusta</button>
                 </form>
             @else
                 <form action="{{ route('posts.likes', $post) }}" method="post" class="mr-1">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="text-blue-500">No me gusta</button>
+                    <button type="submit" class="text-blue-600 text-bold">No me gusta</button>
                 </form>
             @endif
 
